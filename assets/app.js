@@ -737,7 +737,7 @@
     $("#btn-update").addEventListener("click", function () {
       var btn = $("#btn-update");
       btn.classList.add("loading");
-      btn.textContent = "Atualizando…";
+      btn.textContent = "Atualizando e publicando…";
 
       function finish() {
         btn.classList.remove("loading");
@@ -780,8 +780,26 @@
           }
           return resp.json();
         })
-        .then(function () {
-          refetchOnly();
+        .then(function (body) {
+          var git = body && body.git;
+          var msg, isError;
+          if (!git) {
+            msg = undefined;
+            isError = false;
+          } else if (git.publicado) {
+            msg = "Base atualizada e publicada no GitHub.";
+            isError = false;
+          } else if (git.comitado) {
+            msg = "Base atualizada e comitada, mas " + git.mensagem;
+            isError = true;
+          } else if (git.mensagem.indexOf("Nada para comitar") !== -1) {
+            msg = "Base recarregada — " + git.mensagem;
+            isError = false;
+          } else {
+            msg = "Base atualizada, mas não foi comitada: " + git.mensagem;
+            isError = true;
+          }
+          refetchOnly(msg, isError);
         })
         .catch(function (err) {
           if (err.fromServer) {

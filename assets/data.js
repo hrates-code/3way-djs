@@ -1,10 +1,10 @@
 // Gerado automaticamente por build_data.py — não editar manualmente.
 window.DJS_DATA = {
   "meta": {
-    "ultima_atualizacao": "2026-09-02T16:35:10-0300",
-    "ultima_atualizacao_fmt": "02/09/2026 às 16:35",
-    "total_processos": 4,
-    "total_movimentacoes": 25
+    "ultima_atualizacao": "2026-09-02T17:39:57-0300",
+    "ultima_atualizacao_fmt": "02/09/2026 às 17:39",
+    "total_processos": 5,
+    "total_movimentacoes": 26
   },
   "config": {
     "senha_padrao": "3way-djs",
@@ -163,6 +163,22 @@ window.DJS_DATA = {
       "vlr_causa": 32902.83,
       "vlr_causa_raw": "R$ 32.902,83",
       "obs": "DJS PRESTADORA DE SERVICO LTDA. (1ª reclamada); THREEWAY CONSTRUCOES LTDA. (2ª reclamada); SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL – SENAI (3ª reclamada); DIOGO JOSÉ DE JESUS SOUZA (4ª reclamada).",
+      "arquivado": false
+    },
+    {
+      "ref_processo": "-josenir-araujo.3way",
+      "pasta": "josenir pinheiro -djs",
+      "arquivo": "📗 josenir araujo.md",
+      "nr_processo": "0001739-22.2026.5.18.0082",
+      "jurisdicao": "2ª VARA DO TRABALHO DE APARECIDA DE GOIÂNIA - GO",
+      "parte": "JOSENIR DE ARAUJO PINHEIRO",
+      "parte_id": "",
+      "advogado": [],
+      "adv_escritorio": "",
+      "grupo_advogado": "Sem advogado informado",
+      "vlr_causa": 0.0,
+      "vlr_causa_raw": "R$",
+      "obs": "",
       "arquivado": false
     },
     {
@@ -549,6 +565,27 @@ window.DJS_DATA = {
       ],
       "ref_ato_prc": [],
       "data": "2026-08-24",
+      "dt_publicacao": "",
+      "dt_prazo": "",
+      "obs": "",
+      "arquivado": true
+    },
+    {
+      "id": "778c403",
+      "pasta": "josenir pinheiro -djs",
+      "arquivo": "26.9.2 habilitacao hrr -josenir-araujo.3way.md",
+      "processo_ref": "-josenir-araujo.3way",
+      "tags": [
+        "habilitacao_hrr"
+      ],
+      "resumo_prc": "HABILITAÇÃO THREEWAY",
+      "doc_anexos": [
+        "procuracao",
+        "carta_preposto",
+        "contrato_social"
+      ],
+      "ref_ato_prc": [],
+      "data": "2026-09-02",
       "dt_publicacao": "",
       "dt_prazo": "",
       "obs": "",

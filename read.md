@@ -4,15 +4,15 @@ Dashboard interativo com o andamento das reclamações trabalhistas contra **DJS
 
 ## Arquivos desta pasta
 
-| Arquivo | Função |
-|---|---|
-| `index.html` | O dashboard em si (abrir no navegador ou publicar no GitHub Pages). |
-| `assets/data.js` | Base de dados gerada automaticamente — **não editar à mão**. |
-| `assets/style.css` / `assets/app.js` | Estilo e lógica do dashboard. |
-| `configuracoes.md` | Diretrizes editáveis: colunas exibidas, filtros, ordenação, senhas, última atualização. |
-| `build_data.py` | Script que varre o vault e regenera `assets/data.js` a partir de `configuracoes.md`. |
-| `server.py` | Servidor local que serve o dashboard **e** expõe a rota que o botão "Atualizar Base de Dados" chama para reler o vault e regravar `assets/data.js` na hora. |
-| `prompt-relatorio-djs-3way.md` | Prompt original que originou este relatório. |
+| Arquivo                              | Função                                                                                                                                                      |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `index.html`                         | O dashboard em si (abrir no navegador ou publicar no GitHub Pages).                                                                                         |
+| `assets/data.js`                     | Base de dados gerada automaticamente — **não editar à mão**.                                                                                                |
+| `assets/style.css` / `assets/app.js` | Estilo e lógica do dashboard.                                                                                                                               |
+| `configuracoes.md`                   | Diretrizes editáveis: colunas exibidas, filtros, ordenação, senhas, última atualização.                                                                     |
+| `build_data.py`                      | Script que varre o vault e regenera `assets/data.js` a partir de `configuracoes.md`.                                                                        |
+| `server.py`                          | Servidor local que serve o dashboard **e** expõe a rota que o botão "Atualizar Base de Dados" chama para reler o vault e regravar `assets/data.js` na hora. |
+| `prompt-relatorio-djs-3way.md`       | Prompt original que originou este relatório.                                                                                                                |
 
 ## Como visualizar
 
@@ -32,9 +32,9 @@ Dashboard interativo com o andamento das reclamações trabalhistas contra **DJS
 
 ### Senhas de acesso
 
-| Senha | Acesso |
-|---|---|
-| `3way-djs` | Visualização normal (cards, gráficos, tabela, filtros). |
+| Senha          | Acesso                                                       |
+| -------------- | ------------------------------------------------------------ |
+| `3way-djs`     | Visualização normal (cards, gráficos, tabela, filtros).      |
 | `3way-djs-adm` | Tudo do acesso normal + botão **"Atualizar Base de Dados"**. |
 
 As senhas ficam em `configuracoes.md` (`senha_padrao` / `senha_admin`) e podem ser trocadas ali — depois rode `build_data.py` para que `data.js` reflita a mudança.
@@ -93,3 +93,7 @@ O agrupamento processo↔movimentações é feito pela **pasta** (todo arquivo d
 2. `git add`, `commit`, `push` para um repositório no GitHub.
 3. Em Settings → Pages, ative o GitHub Pages apontando para a branch/pasta publicada.
 4. A URL do Pages será o link do dashboard. Leia o aviso de segurança acima antes de compartilhar.
+
+# GitHub
+
+https://hrates-code.github.io/3way-djs/
