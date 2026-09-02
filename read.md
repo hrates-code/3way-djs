@@ -11,12 +11,12 @@ Dashboard interativo com o andamento das reclamações trabalhistas contra **DJS
 | `assets/style.css` / `assets/app.js` | Estilo e lógica do dashboard.                                                                                                                               |
 | `configuracoes.md`                   | Diretrizes editáveis: colunas exibidas, filtros, ordenação, senhas, última atualização.                                                                     |
 | `build_data.py`                      | Script que varre o vault e regenera `assets/data.js` a partir de `configuracoes.md`.                                                                        |
-| `server.py`                          | Servidor local que serve o dashboard **e** expõe a rota que o botão "Atualizar Base de Dados" chama para reler o vault e regravar `assets/data.js` na hora. |
+| `server.py`                          | Servidor local que serve o dashboard **e** expõe a rota que o botão "Atualizar Base de Dados" chama para reler o vault, regravar `assets/data.js` na hora e comitar/publicar (push) só esta pasta no repositório GitHub. |
 | `prompt-relatorio-djs-3way.md`       | Prompt original que originou este relatório.                                                                                                                |
 
 ## Como visualizar
 
-- **Local, com atualização em um clique** (recomendado): rode o servidor próprio deste dashboard, que serve os arquivos **e** habilita o botão de administrador a regerar a base de verdade:
+- **Local, com atualização e publicação em um clique** (recomendado): rode o servidor próprio deste dashboard, que serve os arquivos **e** habilita o botão de administrador a regerar a base de verdade e já publicá-la no GitHub:
   ```bash
   cd 3way/djs/relatorio-djs-3way
   python3 server.py
@@ -27,7 +27,7 @@ Dashboard interativo com o andamento das reclamações trabalhistas contra **DJS
   cd 3way/djs/relatorio-djs-3way
   python3 -m http.server 8000
   ```
-  Nesse modo o botão "Atualizar Base de Dados" não consegue reler o vault (não existe a rota `/api/atualizar`) — ele só recarrega o `assets/data.js` que já estiver no disco, então é preciso rodar `build_data.py` manualmente antes de clicar.
+  Nesse modo o botão "Atualizar Base de Dados" não consegue reler o vault nem publicar (não existe a rota `/api/atualizar`) — ele só recarrega o `assets/data.js` que já estiver no disco, então é preciso rodar `build_data.py` (e `git add`/`commit`/`push`) manualmente antes de clicar.
 - **Publicado no GitHub Pages**: veja a seção "Publicar no GitHub" abaixo — nesse caso o botão também só recarrega o `data.js` já publicado, pelo mesmo motivo (site estático, sem processo Python rodando).
 
 ### Senhas de acesso
@@ -46,11 +46,14 @@ As senhas ficam em `configuracoes.md` (`senha_padrao` / `senha_admin`) e podem s
 
 ## Como atualizar a base de dados
 
-### Opção A — rodando via `server.py` (atualização em um clique)
+### Opção A — rodando via `server.py` (atualização e publicação em um clique)
 
 1. Inicie o servidor local desta pasta (veja "Como visualizar" acima) e acesse o dashboard com a senha de administrador (`3way-djs-adm`).
-2. Clique em **"Atualizar Base de Dados"**. O botão chama a rota `/api/atualizar` do `server.py`, que roda a mesma lógica do `build_data.py` (relê `configuracoes.md` e todas as pastas `3way/*-djs*/*.md`), regrava `assets/data.js` no disco e devolve a nova data/hora — a página já recarrega os dados atualizados sem F5.
-3. Se quiser publicar o resultado (GitHub Pages), faça `git add`, `commit`, `push` do `assets/data.js` e `configuracoes.md` atualizados depois de conferir os dados.
+2. Clique em **"Atualizar Base de Dados"**. O botão chama a rota `/api/atualizar` do `server.py`, que:
+   - roda a mesma lógica do `build_data.py` (relê `configuracoes.md` e todas as pastas `3way/*-djs*/*.md`) e regrava `assets/data.js` no disco;
+   - em seguida comita (`git add` + `git commit`) e publica (`git push`) automaticamente **só esta pasta** (`relatorio-djs-3way`) no repositório GitHub configurado como remoto `origin` — nada do resto do vault é tocado, porque o repositório git tem raiz nesta pasta;
+   - devolve a nova data/hora e o resultado da publicação — a página já recarrega os dados atualizados sem F5, e um aviso no rodapé conta se a publicação deu certo.
+3. Se o push falhar (sem rede, sem permissão no repo, etc.), a base local já foi atualizada e comitada mesmo assim — o aviso mostra o motivo da falha, e basta rodar `git push` manualmente depois de resolvido o problema.
 
 ### Opção B — sem `server.py` (arquivo local ou já publicado)
 
@@ -89,10 +92,17 @@ O agrupamento processo↔movimentações é feito pela **pasta** (todo arquivo d
 
 ## Publicar no GitHub
 
-1. Se a pasta ainda não é um repositório git, inicialize um (`git init`) na raiz que você quiser publicar — recomenda-se publicar **apenas** esta pasta `relatorio-djs-3way` (ou um repositório dedicado), para não expor o restante do vault.
-2. `git add`, `commit`, `push` para um repositório no GitHub.
-3. Em Settings → Pages, ative o GitHub Pages apontando para a branch/pasta publicada.
-4. A URL do Pages será o link do dashboard. Leia o aviso de segurança acima antes de compartilhar.
+Esta pasta (`relatorio-djs-3way`) já é um repositório git próprio (raiz em `.git` aqui dentro), com remoto `origin` apontando para `https://github.com/hrates-code/3way-djs` — **não** o vault inteiro, só esta pasta. A autenticação do push usa o GitHub CLI (`gh`), instalado em `~/bin/gh` e autenticado como `hrates-code`; o git usa `gh` como credential helper para `https://github.com` (configurado globalmente em `~/.gitconfig`).
+
+- **Publicação automática**: clicar em "Atualizar Base de Dados" (Opção A acima) já comita e dá push sozinho.
+- **Publicação manual**, se precisar (ex.: depois de editar `configuracoes.md` na mão):
+  ```bash
+  cd 3way/djs/relatorio-djs-3way
+  git add -A
+  git commit -m "Atualiza base de dados"
+  git push origin HEAD:main
+  ```
+- O GitHub Pages já está ativo apontando para este repositório: https://hrates-code.github.io/3way-djs/ — leia o aviso de segurança acima antes de compartilhar esse link.
 
 # GitHub
 
