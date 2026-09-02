@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Reclamações Trabalhistas DJS e 3Way</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<!-- ---------- LOGIN ---------- -->
+<div id="login-screen" hidden>
+  <div class="login-card">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div>
+        <h1>Reclamações Trabalhistas<br>DJS e 3Way</h1>
+      </div>
+    </div>
+    <p class="sub">Relatório de acompanhamento processual. Acesso restrito — informe a senha para continuar.</p>
+    <form id="login-form">
+      <label class="field-label" for="login-password">Senha de acesso</label>
+      <input id="login-password" type="password" placeholder="••••••••" autocomplete="current-password" autofocus />
+      <div id="login-error"></div>
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ---------- APP ---------- -->
+<div id="app" hidden>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="title-block">
+        <h1>Reclamações Trabalhistas DJS e 3Way</h1>
+        <p>Base atualizada em <strong id="last-updated">—</strong><span class="dot">•</span>Hugo Ribeiro Rates — OAB/GO 33.914</p>
+      </div>
+      <div class="topbar-actions">
+        <span id="role-badge" class="badge">—</span>
+        <button id="btn-update" class="btn btn-update" hidden>Atualizar Base de Dados</button>
+        <button id="btn-logout" class="btn btn-ghost">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Cards -->
+    <section class="cards-grid">
+      <div class="stat-card accent-orange" id="card-andamento">
+        <div class="stat-label">Ações em andamento</div>
+        <div class="stat-value">0</div>
+      </div>
+      <div class="stat-card" id="card-arquivados">
+        <div class="stat-label">Ações arquivadas</div>
+        <div class="stat-value">0</div>
+      </div>
+      <div class="stat-card accent-blue" id="card-total-processos">
+        <div class="stat-label">Total de processos</div>
+        <div class="stat-value">0</div>
+      </div>
+      <div class="stat-card accent-green" id="card-valor-total">
+        <div class="stat-label">Valor total das causas</div>
+        <div class="stat-value">R$ 0,00</div>
+      </div>
+      <div class="stat-card accent-red" id="card-prazos-ativos">
+        <div class="stat-label">Prazos em andamento</div>
+        <div class="stat-value">0</div>
+        <div class="stat-sub">Destacados na tabela abaixo</div>
+      </div>
+      <div class="stat-card filters-card">
+        <div class="stat-label">Filtros ativos</div>
+        <div class="chip-row" id="filtros-ativos-chips"></div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-bar">
+      <div class="filter-group">
+        <label for="filtro-geral">Filtro geral</label>
+        <select id="filtro-geral"></select>
+      </div>
+      <div class="filter-group" id="filtro-geral-valor-wrap" hidden>
+        <label for="filtro-geral-valor">Selecionar</label>
+        <select id="filtro-geral-valor"></select>
+      </div>
+      <div class="filter-group">
+        <label for="filtro-data-tipo">Filtro por data</label>
+        <select id="filtro-data-tipo">
+          <option value="todos">Todos</option>
+          <option value="periodo">Data por período</option>
+          <option value="prazo">Data do prazo</option>
+        </select>
+      </div>
+      <div class="filter-group date-range" id="filtro-periodo-wrap" hidden>
+        <div>
+          <label for="filtro-data-de">De</label>
+          <input type="date" id="filtro-data-de" />
+        </div>
+        <div>
+          <label for="filtro-data-ate">Até</label>
+          <input type="date" id="filtro-data-ate" />
+        </div>
+      </div>
+      <div class="filter-group" id="filtro-prazo-wrap" hidden>
+        <label for="filtro-prazo-status">Status do prazo</label>
+        <select id="filtro-prazo-status"></select>
+      </div>
+      <button id="filtro-clear" class="btn btn-ghost filter-clear">Limpar filtros</button>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-grid">
+      <div class="chart-card">
+        <h3>Status dos Processos</h3>
+        <p class="chart-insight" id="chart-status-insight">—</p>
+        <div class="chart-wrap"><canvas id="chart-status"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Peças Processuais por Tipo</h3>
+        <p class="chart-insight" id="chart-tags-insight">—</p>
+        <div class="chart-wrap"><canvas id="chart-tags"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Movimentações por Mês</h3>
+        <p class="chart-insight" id="chart-timeline-insight">—</p>
+        <div class="chart-wrap"><canvas id="chart-timeline"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Valor da Causa por Reclamante</h3>
+        <p class="chart-insight" id="chart-valor-insight">—</p>
+        <div class="chart-wrap"><canvas id="chart-valor"></canvas></div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section>
+      <div class="section-heading">
+        <h2>Processos e Peças Processuais</h2>
+        <span>Agrupados por advogado → processo · peças em ordem decrescente de data</span>
+      </div>
+      <div id="results"></div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    Hugo Rates Content · Relatório gerado a partir da base local do vault · Uso interno
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
