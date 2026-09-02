@@ -1,8 +1,8 @@
 // Gerado automaticamente por build_data.py — não editar manualmente.
 window.DJS_DATA = {
   "meta": {
-    "ultima_atualizacao": "2026-09-02T17:39:57-0300",
-    "ultima_atualizacao_fmt": "02/09/2026 às 17:39",
+    "ultima_atualizacao": "2026-09-02T17:41:09-0300",
+    "ultima_atualizacao_fmt": "02/09/2026 às 17:41",
     "total_processos": 5,
     "total_movimentacoes": 26
   },
