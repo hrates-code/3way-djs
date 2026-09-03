@@ -1,5 +1,5 @@
 ---
-ultima_atualizacao: "03/09/2026 às 06:44"
+ultima_atualizacao: "03/09/2026 às 10:48"
 
 pasta_base: "3way"
 padrao_pasta: "-djs"

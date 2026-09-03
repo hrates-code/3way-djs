@@ -1,10 +1,10 @@
 // Gerado automaticamente por build_data.py — não editar manualmente.
 window.DJS_DATA = {
   "meta": {
-    "ultima_atualizacao": "2026-09-03T06:44:07-0300",
-    "ultima_atualizacao_fmt": "03/09/2026 às 06:44",
+    "ultima_atualizacao": "2026-09-03T10:48:20-0300",
+    "ultima_atualizacao_fmt": "03/09/2026 às 10:48",
     "total_processos": 5,
-    "total_movimentacoes": 26
+    "total_movimentacoes": 28
   },
   "config": {
     "senha_padrao": "3way-djs",
@@ -114,8 +114,8 @@ window.DJS_DATA = {
       ],
       "adv_escritorio": "Faleiro e Marques",
       "grupo_advogado": "Claudio Faleiro de Freitas OAB-GO 19.177 / Milene Joyce F. Gonçalves OAB-GO 63.476",
-      "vlr_causa": 0.0,
-      "vlr_causa_raw": "R$",
+      "vlr_causa": 84669.43,
+      "vlr_causa_raw": "R$ 84.669,43",
       "obs": "DJS PRESTADORA DE SERVICO LTDA. (1ª reclamada); THREEWAY CONSTRUCOES LTDA. (2ª reclamada)",
       "arquivado": false
     },
@@ -164,13 +164,16 @@ window.DJS_DATA = {
       "nr_processo": "0001739-22.2026.5.18.0082",
       "jurisdicao": "2ª VARA DO TRABALHO DE APARECIDA DE GOIÂNIA - GO",
       "parte": "JOSENIR DE ARAUJO PINHEIRO",
-      "parte_id": "",
-      "advogado": [],
+      "parte_id": "238.229.868-52",
+      "advogado": [
+        "Leonardo Camilher M. X. Bicalho OAB-GO 63047",
+        "Iasmyn Bueno Julião dos Santos OAB-GO 49678"
+      ],
       "adv_escritorio": "",
-      "grupo_advogado": "Sem advogado informado",
-      "vlr_causa": 0.0,
-      "vlr_causa_raw": "R$",
-      "obs": "",
+      "grupo_advogado": "Leonardo Camilher M. X. Bicalho OAB-GO 63047 / Iasmyn Bueno Julião dos Santos OAB-GO 49678",
+      "vlr_causa": 62509.05,
+      "vlr_causa_raw": "R$ 62.509,05",
+      "obs": "DJS PRESTADORA DE SERVICO LTDA. (1ª reclamada); THREEWAY CONSTRUCOES LTDA. (2ª reclamada); SERVIÇO NACIONAL DE APRENDIZAGEM INDUSTRIAL – SENAI (3ª reclamada); DIOGO JOSE DE JESUS SOUZA (4ª reclamada)",
       "arquivado": false
     },
     {
@@ -504,25 +507,6 @@ window.DJS_DATA = {
       "arquivado": true
     },
     {
-      "id": "55b68e9",
-      "pasta": "joao batista de castro -djs",
-      "arquivo": "26.8.20 📚 cnpj djs baixa -joao-batista.3way.md",
-      "processo_ref": "-joao-batista.3way",
-      "tags": [
-        "cnpj"
-      ],
-      "resumo_prc": "Certidão de Baixa de Inscrição no CNPJ da DJS Prestadora de Serviço Ltda, extinta por encerramento de liquidação voluntária (baixa em 16/06/2026)",
-      "doc_anexos": [],
-      "ref_ato_prc": [
-        "26.8.20 1️⃣ rt -joao-batista.3way"
-      ],
-      "data": "2026-08-20",
-      "dt_publicacao": "",
-      "dt_prazo": "",
-      "obs": "",
-      "arquivado": true
-    },
-    {
       "id": "2bb8fd4",
       "pasta": "joao batista de castro -djs",
       "arquivo": "26.8.21 🔊 notificacao audiencia conciliacao -joao-batista.3way.md",
@@ -557,6 +541,69 @@ window.DJS_DATA = {
       ],
       "ref_ato_prc": [],
       "data": "2026-08-24",
+      "dt_publicacao": "",
+      "dt_prazo": "",
+      "obs": "",
+      "arquivado": true
+    },
+    {
+      "id": "dee60bf",
+      "pasta": "josenir pinheiro -djs",
+      "arquivo": "26.8.28 1️⃣ reclamacao trabalhista -josenir-araujo.3way.md",
+      "processo_ref": "-josenir-araujo.3way",
+      "tags": [
+        "reclamacao_trabalhista"
+      ],
+      "resumo_prc": "",
+      "doc_anexos": [
+        "procuracao",
+        "rg",
+        "26.8.4 📚 ctps -josenir-araujo.3way",
+        "26.8.20 📚 cnpj djs baixa -joao-batista.3way",
+        "trct-3way",
+        "trct-3way-comprovante-pagamento-pix",
+        "holerite-3way-2026-06",
+        "print-whatsapp-numero-celular-diogo-djs",
+        "print-mensagem-whatsapp-diogo-djs"
+      ],
+      "ref_ato_prc": [],
+      "data": "2026-08-28",
+      "dt_publicacao": "",
+      "dt_prazo": "",
+      "obs": "",
+      "arquivado": true
+    },
+    {
+      "id": "67af73d",
+      "pasta": "josenir pinheiro -djs",
+      "arquivo": "26.8.31 🔊 notificacao audiencia conciliacao -josenir-araujo.3way.md",
+      "processo_ref": "-josenir-araujo.3way",
+      "tags": [
+        "notificacao_audiencia_conciliacao"
+      ],
+      "resumo_prc": "",
+      "doc_anexos": [],
+      "ref_ato_prc": [
+        "26.8.28 1️⃣ reclamacao trabalhista -josenir-araujo.3way"
+      ],
+      "data": "2026-08-31",
+      "dt_publicacao": "",
+      "dt_prazo": "",
+      "obs": "",
+      "arquivado": false
+    },
+    {
+      "id": "26.8.4 📚 ctps -josenir-araujo.3way.md",
+      "pasta": "josenir pinheiro -djs",
+      "arquivo": "26.8.4 📚 ctps -josenir-araujo.3way.md",
+      "processo_ref": "-josenir-araujo.3way",
+      "tags": [
+        "ctps"
+      ],
+      "resumo_prc": "",
+      "doc_anexos": [],
+      "ref_ato_prc": [],
+      "data": "2026-08-04",
       "dt_publicacao": "",
       "dt_prazo": "",
       "obs": "",
