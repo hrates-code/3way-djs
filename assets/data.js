@@ -1,8 +1,8 @@
 // Gerado automaticamente por build_data.py — não editar manualmente.
 window.DJS_DATA = {
   "meta": {
-    "ultima_atualizacao": "2026-09-02T17:41:09-0300",
-    "ultima_atualizacao_fmt": "02/09/2026 às 17:41",
+    "ultima_atualizacao": "2026-09-03T06:44:07-0300",
+    "ultima_atualizacao_fmt": "03/09/2026 às 06:44",
     "total_processos": 5,
     "total_movimentacoes": 26
   },
@@ -10,14 +10,6 @@ window.DJS_DATA = {
     "senha_padrao": "3way-djs",
     "senha_admin": "3way-djs-adm",
     "tags_processo": [
-      {
-        "campo": "nr_processo",
-        "nome": "Processo"
-      },
-      {
-        "campo": "jurisdicao",
-        "nome": "Vara"
-      },
       {
         "campo": "parte",
         "nome": "Reclamante"
@@ -27,16 +19,16 @@ window.DJS_DATA = {
         "nome": "CPF Reclamante"
       },
       {
-        "campo": "advogado",
-        "nome": "Advogado(s)"
-      },
-      {
-        "campo": "adv_escritorio",
-        "nome": "Escritório do Advogado"
-      },
-      {
         "campo": "vlr_causa",
         "nome": "Valor da Causa"
+      },
+      {
+        "campo": "nr_processo",
+        "nome": "Processo"
+      },
+      {
+        "campo": "jurisdicao",
+        "nome": "Vara"
       },
       {
         "campo": "obs",
@@ -44,7 +36,7 @@ window.DJS_DATA = {
       },
       {
         "campo": "arquivado",
-        "nome": "Arquivado"
+        "nome": "Status"
       }
     ],
     "tags_movimentacao": [
@@ -121,7 +113,7 @@ window.DJS_DATA = {
         "Milene Joyce F. Gonçalves OAB-GO 63.476"
       ],
       "adv_escritorio": "Faleiro e Marques",
-      "grupo_advogado": "Faleiro e Marques",
+      "grupo_advogado": "Claudio Faleiro de Freitas OAB-GO 19.177 / Milene Joyce F. Gonçalves OAB-GO 63.476",
       "vlr_causa": 0.0,
       "vlr_causa_raw": "R$",
       "obs": "DJS PRESTADORA DE SERVICO LTDA. (1ª reclamada); THREEWAY CONSTRUCOES LTDA. (2ª reclamada)",
@@ -140,7 +132,7 @@ window.DJS_DATA = {
         "Milene Joyce F. Gonçalves OAB-GO 63.476"
       ],
       "adv_escritorio": "Faleiro e Marques",
-      "grupo_advogado": "Faleiro e Marques",
+      "grupo_advogado": "Claudio Faleiro de Freitas OAB-GO 19.177 / Milene Joyce F. Gonçalves OAB-GO 63.476",
       "vlr_causa": 79091.94,
       "vlr_causa_raw": "R$ 79.091,94",
       "obs": "DJS PRESTADORA DE SERVICO LTDA. (1ª reclamada); THREEWAY CONSTRUCOES LTDA. (2ª reclamada)",
@@ -194,7 +186,7 @@ window.DJS_DATA = {
         "Milene Joyce F. Gonçalves OAB-GO 63.476"
       ],
       "adv_escritorio": "Faleiro e Marques",
-      "grupo_advogado": "Faleiro e Marques",
+      "grupo_advogado": "Claudio Faleiro de Freitas OAB-GO 19.177 / Milene Joyce F. Gonçalves OAB-GO 63.476",
       "vlr_causa": 54115.61,
       "vlr_causa_raw": "R$ 54.115,61",
       "obs": "DJS PRESTADORA DE SERVICO LTDA. (1ª reclamada); THREEWAY CONSTRUCOES LTDA. (2ª reclamada)",

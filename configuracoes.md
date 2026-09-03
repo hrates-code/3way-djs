@@ -1,5 +1,5 @@
 ---
-ultima_atualizacao: "02/09/2026 às 17:41"
+ultima_atualizacao: "03/09/2026 às 06:44"
 
 pasta_base: "3way"
 padrao_pasta: "-djs"
@@ -8,24 +8,20 @@ senha_padrao: "3way-djs"
 senha_admin: "3way-djs-adm"
 
 tags_processo:
-  - campo: nr_processo
-    nome: "Processo"
-  - campo: jurisdicao
-    nome: "Vara"
   - campo: parte
     nome: "Reclamante"
   - campo: parte_id
     nome: "CPF Reclamante"
-  - campo: advogado
-    nome: "Advogado(s)"
-  - campo: adv_escritorio
-    nome: "Escritório do Advogado"
   - campo: vlr_causa
     nome: "Valor da Causa"
+  - campo: nr_processo
+    nome: "Processo"
+  - campo: jurisdicao
+    nome: "Vara"
   - campo: obs
     nome: "Observações"
   - campo: arquivado
-    nome: "Arquivado"
+    nome: "Status"
 
 tags_movimentacao:
   - campo: tags

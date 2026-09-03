@@ -8,6 +8,7 @@
     role: null, // 'user' | 'admin'
     filtroGeral: "todos", // todos | advogado | processo | parte
     filtroGeralValor: "",
+    filtroMovStatus: "andamento",
     filtroDataTipo: "todos", // todos | periodo | prazo
     dataDe: "",
     dataAte: "",
@@ -213,6 +214,11 @@
       renderAll();
     });
 
+    $("#filtro-mov-status").addEventListener("change", function () {
+      state.filtroMovStatus = $("#filtro-mov-status").value;
+      renderAll();
+    });
+
     selDataTipo.addEventListener("change", function () {
       state.filtroDataTipo = selDataTipo.value;
       $("#filtro-periodo-wrap").hidden = state.filtroDataTipo !== "periodo";
@@ -237,12 +243,14 @@
     $("#filtro-clear").addEventListener("click", function () {
       state.filtroGeral = "todos";
       state.filtroGeralValor = "";
+      state.filtroMovStatus = "andamento";
       state.filtroDataTipo = "todos";
       state.dataDe = "";
       state.dataAte = "";
       state.filtroPrazoStatus = "todos";
       selGeral.value = "todos";
       buildFiltroGeralValor();
+      $("#filtro-mov-status").value = "andamento";
       selDataTipo.value = "todos";
       $("#filtro-data-de").value = "";
       $("#filtro-data-ate").value = "";
@@ -296,6 +304,13 @@
     procs.forEach(function (p) { allowedRefs[p.ref_processo] = true; });
     movs = movs.filter(function (m) { return allowedRefs[m.processo_ref]; });
 
+    // Filtro por status da movimentação
+    if (state.filtroMovStatus === "andamento") {
+      movs = movs.filter(function (m) { return m.arquivado === false; });
+    } else if (state.filtroMovStatus === "arquivados") {
+      movs = movs.filter(function (m) { return m.arquivado === true; });
+    }
+
     // Filtro por data
     if (state.filtroDataTipo === "periodo") {
       if (state.dataDe) movs = movs.filter(function (m) { return m.data && m.data >= state.dataDe; });
@@ -348,6 +363,15 @@
     } else {
       chips.push({ text: labelFiltroGeral(state.filtroGeral) + (state.filtroGeralValor ? ": " + state.filtroGeralValor : " (todos)") });
     }
+
+    if (state.filtroMovStatus === "andamento") {
+      chips.push({ text: "Peças: Em andamento" });
+    } else if (state.filtroMovStatus === "arquivados") {
+      chips.push({ text: "Peças: Arquivadas" });
+    } else {
+      chips.push({ text: "Peças: Todas", neutral: true });
+    }
+
     if (state.filtroDataTipo === "periodo") {
       var de = state.dataDe ? formatDateBR(state.dataDe) : "início";
       var ate = state.dataAte ? formatDateBR(state.dataAte) : "hoje";

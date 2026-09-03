@@ -142,7 +142,7 @@ def build():
         fname, data = processo_file
         advogados = clean_list(data.get("advogado"))
         adv_escritorio = clean_scalar(data.get("adv_escritorio"))
-        grupo_advogado = adv_escritorio if adv_escritorio else " / ".join(advogados) or "Sem advogado informado"
+        grupo_advogado = " / ".join(advogados) or "Sem advogado informado"
         ref_processo = clean_scalar(data.get("ref_processo")) or pasta_nome
 
         processo = {
